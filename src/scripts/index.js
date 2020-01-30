@@ -1,5 +1,8 @@
-import { qs, qsa, $on, $delegate } from './utils';
-
 import '../stylesheets/style.scss';
+import $ from 'jquery';
+import "bootstrap/js/src/collapse";
 
-console.log('Hello!');
+
+window.$ = window.jQuery = $;
+
+console.log();

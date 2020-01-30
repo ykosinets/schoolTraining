@@ -1,4 +1,12 @@
+$fa-font-path: '../fonts';
+
 @import '~normalize.css/normalize.css';
+@import "~bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
 @import './base';
 @import './media';
 @import './fonts';
@@ -15,6 +23,19 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
+
+  & > *{
+    width: 100%;
+  }
+}
+
+header{
+  height: 200px;
+  overflow: hidden;
+}
+
+main{
+  flex-grow: 1;
 }
 
 a {
