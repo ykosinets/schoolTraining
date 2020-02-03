@@ -56,17 +56,25 @@ class Slider {
     }
 
     function createBackground(slide) {
-      return `<a href="${slide.link}" class="fs d-block position-absolute"></a>
-          <video muted playsinline webkit-playsinline class="temp">
-            <source src="${slide.video.url}" type="video/mp4">
-          </video>`;
+      console.log(slide.video.url)
+      return `<a href="${slide.link}" class="fs d-block position-absolute bg-cover" ${!slide.video.url ? `style="background-image: url(${slide.image});"` : ``}></a>
+          ${slide.video.url ? `<video muted playsinline webkit-playsinline class="temp"><source src="${slide.video.url}" type="video/mp4"></video>` : ``}`;
     }
 
-    $backgroundHolder.html(createBackground(slide));
-    $backgroundHolder.find('video')[0].load();
+    if($backgroundHolder){
+      $backgroundHolder.html(createBackground(slide));
+    }
+    if($backgroundHolder.find('video')[0]) {
+      $backgroundHolder.find('video')[0].load();
+    }
 
-    $contentHolder.append(createTabContent(slide));
-    $pillsHolder.append(createNavPills(slide));
+    if($contentHolder) {
+      $contentHolder.append(createTabContent(slide));
+    }
+
+    if($pillsHolder) {
+      $pillsHolder.append(createNavPills(slide));
+    }
   };
 
   updateContent(slide) {
@@ -85,18 +93,13 @@ class Slider {
     let createSlide = (slide) => {
       return `<div class="item" data-id="${slide.id}">
           <div class="ratio">
-            <div class="ratio-inner bg-cover"
-                 style="background-image: url(${slide.image})">
-              <a href="#" class="btn-play btn-play-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle">
-                  <path
-                    d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"/>
-                </svg>
-              </a>
+            <div class="ratio-inner bg-cover" ${slide.image ? `style="background-image: url(${slide.image})"` : ``}>
+              ${slide.link ? `<a href="${slide.link}" class="btn-play btn-play-xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle"><path d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"/></svg></a>` : ``}
+              
 
               <div class="content">
-                <p class="tile-title">${slide.title}</p>
-                <p class="tile-subtitle">${slide.subtitle}</p>
+                ${slide.title ? `<p class="tile-title">${slide.title}</p>` : ``}
+                ${slide.subtitle ? `<p class="tile-subtitle">${slide.subtitle}</p>` : ``}
                 ${slide.excerpt ? `<p class="tile-excerpt text-primary">${slide.excerpt}</p>` : ``}
               </div>
 
@@ -109,9 +112,7 @@ class Slider {
                 </svg>
               </span>
 
-              <video muted playsinline webkit-playsinline>
-                <source src="${slide.video.url}" type="video/mp4">
-              </video>
+              ${slide.video.url ? `<video muted playsinline webkit-playsinline><source src="${slide.video.url}" type="video/mp4"></video>` : ``}
             </div>
           </div>
         </div>`;
@@ -167,7 +168,7 @@ class Slider {
             }
 
             setTimeout(function () {
-              if ($slide.hasClass('slide-hover') && !$sliderSection.hasClass('shown')) {
+              if (!!$slide.find('video')[0] && $slide.hasClass('slide-hover') && !$sliderSection.hasClass('shown')) {
                 $slide.find('video')[0].play();
               }
             }, 700)
@@ -178,11 +179,14 @@ class Slider {
             clearTimeout(timeout);
             $slides.removeClass('slide-hover slide-prev slide-next');
             $arrows.removeClass('hidden');
-            slideVideo.pause();
 
-            setTimeout(function () {
-              slideVideo.currentTime = 0;
-            }, 150)
+            if(slideVideo) {
+              slideVideo.pause();
+
+              setTimeout(function () {
+                slideVideo.currentTime = 0;
+              }, 150)
+            }
           })
           .on('mousemove', function (e) {
             let $slide = $(this);
@@ -216,12 +220,16 @@ class Slider {
             $sliderSection.addClass('shown');
           }
 
-          slideVideo.pause();
+          if(slideVideo) {
+            slideVideo.pause();
+          }
           $slide.addClass('slide-active').siblings().removeClass('slide-active slide-hover slide-prev slide-next');
           $arrows.removeClass('hidden');
 
-          contentVideo.currentTime = slideVideo.currentTime;
-          contentVideo.play();
+          if(slideVideo && contentVideo) {
+            contentVideo.currentTime = slideVideo.currentTime != slideVideo.duration ? slideVideo.currentTime : 0;
+            contentVideo.play();
+          }
 
           $(contentVideo)
             .on('play', function () {
@@ -242,7 +250,9 @@ class Slider {
           let contentVideo = $contentSection.find('video')[0];
           let slideVideo = $(this).parents('section').find('.slide-active video')[0];
 
-          slideVideo.currentTime = contentVideo.currentTime;
+          if(slideVideo && contentVideo) {
+            slideVideo.currentTime = contentVideo.currentTime != contentVideo.duration ? contentVideo.currentTime : 0;
+          }
         });
       })
       .on('afterChange', function (slick, currentSlide, currentIndex) {

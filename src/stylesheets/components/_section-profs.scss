@@ -10,7 +10,6 @@
 
   .tile {
     &-title {
-      margin-top: 15px;
       @include interpolate(font-size, sm, xxl,14px, 26px);
       font-weight: 200;
     }
@@ -24,5 +23,9 @@
       @include interpolate(letter-spacing, sm, xxl,-.1px, -.6px);
       @include interpolate(font-size, sm, xxl,14px, 26px);
     }
+  }
+
+  .item .content {
+    margin-top: 15px;
   }
 }

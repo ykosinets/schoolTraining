@@ -1,4 +1,5 @@
 .idea
+*.zip
 
 ### Custom ###
 build

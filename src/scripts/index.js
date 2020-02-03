@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 window.$ = window.jQuery = $;
 import "bootstrap/js/dist/tab";
+import "bootstrap/js/dist/collapse";
 import Slider from "./slider";
 import heroInit from "./hero";
 

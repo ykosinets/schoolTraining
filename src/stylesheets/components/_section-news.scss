@@ -1,6 +1,22 @@
 .section-news {
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $black 50px, $black calc(100% - 50px), rgba(0, 0, 0, 0) 100%);
 
+  @include media-breakpoint-down(xl) {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $black 30px, $black calc(100% - 30px), rgba(0, 0, 0, 0) 100%);
+  }
+
+  @include media-breakpoint-down(lg) {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $black 20px, $black calc(100% - 20px), rgba(0, 0, 0, 0) 100%);
+  }
+
+  @include media-breakpoint-down(md) {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $black 15px, $black calc(100% - 15px), rgba(0, 0, 0, 0) 100%);
+  }
+
+  @include media-breakpoint-down(xs) {
+    mask-image: none;
+  }
+
   .slider-multiple {
     .ratio {
       &-inner {

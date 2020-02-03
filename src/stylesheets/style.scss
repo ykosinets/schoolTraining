@@ -163,14 +163,14 @@ a {
 }
 
 .scrollable .section-tiles .slider-multiple.slides-4 .slick-slide {
-  --slide-size: calc(25vw - 17.5px - 5.6666px);
+  --slide-size: calc(30vw - 17.5px - 5.6666px);
 
   @include media-breakpoint-down(xl) {
-    --slide-size: calc(25vw - 7.5px - 5.6666px);
+    --slide-size: calc(30vw - 7.5px - 5.6666px);
   }
 
   @include media-breakpoint-down(lg) {
-    --slide-size: calc(25vw - 2.5px - 5.6666px);
+    --slide-size: calc(30vw - 2.5px - 5.6666px);
   }
 
   @include media-breakpoint-down(md) {
