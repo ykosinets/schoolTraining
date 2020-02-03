@@ -1,8 +1,9 @@
 {
   "slides": [
     {
-      "id": 4,
-      "image": "../static/images/prof-2.jpg",
+      "id": 0,
+      "link": "#",
+      "image": "../static/images/prof-1.jpg",
       "name": "Eduardo García",
       "position": "Ex-alumno de Técnico de Sonido",
       "positionEx": "DJ y Productor",
@@ -15,27 +16,147 @@
         {
           "id": 0,
           "name": "FORMACIÓN",
-          "content": ""
+          "content": "<p class=\"prof-name m-0\">Sack Novello0</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
         },
         {
           "id": 1,
           "name": "LA ESCUELA",
-          "content": ""
+          "content": "content"
         },
         {
           "id": 2,
           "name": "EMPLEO",
-          "content": ""
+          "content": "content"
         },
         {
           "id": 3,
           "name": "SERVICIOS",
-          "content": ""
+          "content": "content"
         },
         {
           "id": 4,
           "name": "CONTACTO",
-          "content": ""
+          "content": "content"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "link": "#",
+      "image": "../static/images/prof-2.jpg",
+      "name": "Eduardo García 2",
+      "position": "Ex-alumno de Técnico de Sonido",
+      "positionEx": "DJ y Productor",
+      "video": {
+        "url": "../static/video/shadows.mp4",
+        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+      },
+      "tabs": [
+        {
+          "id": 0,
+          "name": "FORMACIÓN",
+          "content": "<p class=\"prof-name m-0\">Sack Novello1</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
+        },
+        {
+          "id": 1,
+          "name": "LA ESCUELA",
+          "content": "content"
+        },
+        {
+          "id": 2,
+          "name": "EMPLEO",
+          "content": "content"
+        },
+        {
+          "id": 3,
+          "name": "SERVICIOS",
+          "content": "content"
+        },
+        {
+          "id": 4,
+          "name": "CONTACTO",
+          "content": "content"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "link": "#",
+      "image": "../static/images/prof-3.jpg",
+      "name": "Eduardo García",
+      "position": "Ex-alumno de Técnico de Sonido",
+      "positionEx": "DJ y Productor",
+      "video": {
+        "url": "../static/video/car.mp4",
+        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+      },
+      "tabs": [
+        {
+          "id": 0,
+          "name": "FORMACIÓN",
+          "content": "<p class=\"prof-name m-0\">Sack Novello2</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
+        },
+        {
+          "id": 1,
+          "name": "LA ESCUELA",
+          "content": "content"
+        },
+        {
+          "id": 2,
+          "name": "EMPLEO",
+          "content": "content"
+        },
+        {
+          "id": 3,
+          "name": "SERVICIOS",
+          "content": "content"
+        },
+        {
+          "id": 4,
+          "name": "CONTACTO",
+          "content": "content"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "link": "#",
+      "image": "../static/images/prof-2.jpg",
+      "name": "Eduardo García",
+      "position": "Ex-alumno de Técnico de Sonido",
+      "positionEx": "DJ y Productor",
+      "video": {
+        "url": "../static/video/shadows.mp4",
+        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+      },
+      "tabs": [
+        {
+          "id": 0,
+          "name": "FORMACIÓN",
+          "content": "<p class=\"prof-name m-0\">Sack Novello3</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
+        },
+        {
+          "id": 1,
+          "name": "LA ESCUELA",
+          "content": "content"
+        },
+        {
+          "id": 2,
+          "name": "EMPLEO",
+          "content": "content"
+        },
+        {
+          "id": 3,
+          "name": "SERVICIOS",
+          "content": "content"
+        },
+        {
+          "id": 4,
+          "name": "CONTACTO",
+          "content": "content"
         }
       ]
     }

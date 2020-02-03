@@ -1,95 +1,77 @@
 import $ from 'jquery';
-
 window.$ = window.jQuery = $;
+
 import "is-in-viewport";
 import "slick-carousel/slick/slick";
 
 class Slider {
   createContent = (slide) => {
-    function createTabContent(tab){
-      let tabId = tab.name + '-' + tab.id;
+    let $pillsHolder = $('.nav-pills');
+    let $backgroundHolder = $('.slider-container .background');
+    let $contentHolder = $('.slider-container .tab-content');
 
-      return `<div class="tab-pane fade" id="${tabId}" role="tabpanel" aria-labelledby="${tab.name}-tab">
-          <div class="tab-inner">
-            <p class="prof-name m-0">${tab.name}</p>
-            <p class="prof-ex-position m-0">${tab.positionEx}</p>
-            <p class="prof-position text-primary m-0">${tab.position}}</p>
-            <p class="prof-video-name mt-4">{{videoName}}</p>
-            <p class="prof-video-description mt-1">{{videoDescription}}</p>
-            <div class="flex flex-row mt-3">
-              <div class="btn btn-sm btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle">
-                  <path d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"></path>
-                </svg>
-                REPRODUCIR
-              </div>
-              <div class="btn btn-sm btn-outline-primary ml-3">MÁS INFO</div>
-            </div>
-          </div>
-        </div>`;
+    function createId(id, name){
+      return name.toLowerCase().replace(' ', '-') + '-' + id;
     }
 
-    function createNavPills(tab){
-      let tabId = tab.name + '-' + tab.id;
+    function createTabContent(slide){
+      let content = '';
 
-      return `<li class="nav-item">
-          <a class="nav-link active"
+      slide.tabs.map(tab => {
+        let tabId = createId(tab.id, tab.name);
+        content += `<div class="tab-pane fade ${tab.id === 0 ? 'active show' : ''}" id="${tabId}" role="tabpanel" aria-labelledby="${tab.name}-tab">
+          <div class="tab-inner">
+            ${tab.content}
+          </div>
+        </div>`;
+      });
+
+      return content;
+    }
+
+    function createNavPills(slide){
+      let tabsContent = '';
+
+      slide.tabs.map(tab => {
+        let tabId = createId(tab.id, tab.name);
+
+        tabsContent += `<li class="nav-item">
+          <a class="nav-link ${tab.id === 0 ? 'active' : ''}"
              data-toggle="tab"
              href="#${tabId}"
-             aria-controls="${tab.name}"
+             aria-controls="${tab.name.toLowerCase()}"
              aria-selected="true">
             ${tab.name}
           </a>
         </li>`
+      });
+
+      return tabsContent;
     }
 
     function createBackground(slide){
-      return `<div class="background">
-          <a href="#" class="fs d-block position-absolute"></a>
+      return `<a href="${slide.link}" class="fs d-block position-absolute"></a>
           <video muted playsinline webkit-playsinline class="temp">
             <source src="${slide.video.url}" type="video/mp4">
-          </video>
-        </div>`;
+          </video>`;
     }
 
-    $('.slider-container').append(createBackground(slide[id]));
-    slide.tabs.map(tab => {
-      $('.nav-pills').append(createNavPills(tab));
-    });
+    $backgroundHolder.html(createBackground(slide));
+    $backgroundHolder.find('video')[0].load();
 
-    // let tabs = `<ul class="nav nav-pills" id="pills-tab" role="tablist">`;
+    $contentHolder.append(createTabContent(slide));
+    $pillsHolder.append(createNavPills(slide));
+  };
 
-    // slide.tabs.map((tab)=>{createBackground + createTabs});
+  updateContent = (slide) => {
+    let $pillsHolder = $('.nav-pills');
+    let $backgroundHolder = $('.slider-container .background');
+    let $contentHolder = $('.slider-container .tab-content');
+    $pillsHolder.html('');
+    $backgroundHolder.html('');
+    $contentHolder.html('');
 
-    // return `<div class="tab-content" id="sliderTabContent">
-    //   <div class="tab-pane tab-info fade show active" id="formacion" role="tabpanel"
-    //        aria-labelledby="formacion-tab">
-    //     <div class="tab-inner">
-    //       <p class="prof-name m-0">${slide.name}</p>
-    //       <p class="prof-ex-position m-0">${slide.positionEx}</p>
-    //       <p class="prof-position text-primary m-0">${slide.position}</p>
-    //       <p class="prof-video-name mt-4">${slide.video.name}</p>
-    //       <p class="prof-video-description mt-1">${slide.video.description}</p>
-    //       <div class="flex flex-row mt-3">
-    //         <div class="btn btn-sm btn-primary">
-    //           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle">
-    //             <path d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"></path>
-    //           </svg>
-    //           REPRODUCIR
-    //         </div>
-    //         <div class="btn btn-sm btn-outline-primary ml-3">MÁS INFO</div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //
-    //   <div class="tab-pane fade" id="escuela" role="tabpanel" aria-labelledby="escuela-tab">
-    //     <div class="tab-inner">
-    //       LA ESCUELA
-    //     </div>
-    //   </div>
-    // </div>`;
-
-    return createBackground() + createTabContent() + createNavPills();
+    this.createContent(slide)
   };
 
   render = (data) => {
@@ -133,12 +115,12 @@ class Slider {
     data.slides.map((slide) => {
       $('.slider-profs').append(createSlide(slide));
     });
-
-    Slider.createContent(data.slides[0]);
   };
 
 
-  init = () => {
+  init = (data) => {
+    const self = this;
+    this.createContent(data.slides[0]);
     const arrow = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 240 240" xml:space="preserve"><path id="Chevron_Right" d="M57.633,129.007L165.93,237.268c4.752,4.74,12.451,4.74,17.215,0c4.752-4.74,4.752-12.439,0-17.179	l-99.707-99.671l99.695-99.671c4.752-4.74,4.752-12.439,0-17.191c-4.752-4.74-12.463-4.74-17.215,0L57.621,111.816 C52.942,116.507,52.942,124.327,57.633,129.007z"/></svg>`;
     let slider = {
       element: {
@@ -198,7 +180,7 @@ class Slider {
         $slides
           .on('mouseenter', function (e) {
             let $slide = $(this);
-            $slide.addClass('slide-hover');
+            $slide.addClass('slide-hover slick-active');
             $slide.prevAll().addClass('slide-prev');
             $slide.nextAll().addClass('slide-next');
             $slide.prev().addClass('slick-active');
@@ -239,17 +221,29 @@ class Slider {
           });
 
         $expand.on('click', function (e) {
-          e.stopPropagation();
           let $slide = $(this).parents('.slick-slide');
-          $sliderSection.addClass('shown');
+          let slideId = $slide.find('.item').data('id');
+          self.updateContent(data.slides[slideId]);
+          e.stopPropagation();
+          let $sliderSection = $(slick.target).parents('section');
+          let $contentSection = $sliderSection.find('.slider-container');
+          let contentVideo = $contentSection.find('video')[0];
+          let $arrows = $(slick.target).find('.slick-arrow');
+          let slideVideo = $slide.find('video')[0];
+
+          if (!$sliderSection.hasClass('shown')) {
+            $('html, body').animate({
+              scrollTop: $sliderSection.offset().top
+            }, 500);
+
+            $sliderSection.addClass('shown');
+          }
+
+          slideVideo.pause();
           $slide.addClass('slide-active').siblings().removeClass('slide-active slide-hover slide-prev slide-next');
           $arrows.removeClass('hidden');
 
-          $('html, body').animate({
-            scrollTop: $sliderSection.offset().top
-          }, 500);
-
-          contentVideo.currentTime = $slide.find('video')[0].currentTime;
+          contentVideo.currentTime = slideVideo.currentTime;
           contentVideo.play();
 
           $(contentVideo)
@@ -274,8 +268,9 @@ class Slider {
         });
       })
       .on('afterChange', function (slick, currentSlide, currentIndex) {
+        let $slide = $(currentSlide.$slides.eq(currentIndex));
+
         if ($(window).width() < 768) {
-          let $slide = $(currentSlide.$slides.eq(currentIndex));
           let $sliderSection = $slide.parents('section');
           let $expand = $slide.find('.expand');
 
@@ -284,6 +279,9 @@ class Slider {
             $slide.addClass('slide-active').siblings().removeClass('slide-active');
           }
         }
+
+        console.log($slide);
+        $slide[$slide.is(":in-viewport") ? 'addClass' : 'removeClass']('.slick-active')
       });
 
     slider.element.profs.slick(slider.options.profs);

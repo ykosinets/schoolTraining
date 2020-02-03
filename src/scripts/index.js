@@ -12,7 +12,7 @@ $.ajax({
     if (data) {
       let profSlider = new Slider;
       profSlider.render(data);
-      profSlider.init();
+      profSlider.init(data);
     }
   });
 
