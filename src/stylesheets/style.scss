@@ -1,5 +1,5 @@
-$fa-font-path: '../fonts';
-
+@import './variables';
+//3rd party
 @import '~normalize.css/normalize.css';
 @import "~bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -7,14 +7,24 @@ $fa-font-path: '../fonts';
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/v4-shims";
+@import "~slick-carousel/slick/slick";
 @import './base';
-@import './media';
+@import './helpers';
+@import './controls';
 @import './fonts';
+@import './components/header';
+@import './components/section-tiles';
+@import './components/member-list';
+@import './components/profs-list';
+@import './components/footer';
+@import './components/slider-miltiple';
+// section
+@import './components/section-hero';
 
 // custom styles
-
 html {
   height: 100%;
+  font-size: 16px;
 }
 
 body {
@@ -24,18 +34,30 @@ body {
   justify-content: center;
   min-height: 100%;
 
-  & > *{
+  & > * {
     width: 100%;
   }
 }
 
-header{
-  height: 200px;
+header {
+  //height: 200px;
   overflow: hidden;
 }
 
-main{
+main {
   flex-grow: 1;
+}
+
+section {
+  padding: 15px var(--gap);
+}
+
+.section-title {
+  font-family: $lato;
+  font-weight: 900;
+  border-bottom: 1px solid;
+  padding: 15px 0;
+  margin: 0 0 30px 0;
 }
 
 a {
@@ -48,5 +70,55 @@ a {
     display: inline-block;
     vertical-align: middle;
     width: 80px;
+  }
+}
+
+:root{
+  --gap: 50px;
+  --n-gap: -50px;
+  --slide-size: calc(33.3333vw - 23.3333px);
+
+  @include media-breakpoint-down(xl){
+    --gap: 30px;
+    --n-gap: -30px;
+    --slide-size: calc(33.3333vw - 10px);
+  }
+
+  @include media-breakpoint-down(lg){
+    --gap: 20px;
+    --n-gap: -20px;
+    --slide-size: calc(33.3333vw);
+  }
+
+  @include media-breakpoint-down(md){
+    --gap: 15px;
+    --n-gap: -15px;
+    --slide-size: 50vw;
+  }
+
+  @include media-breakpoint-down(sm){
+    --gap: 15px;
+    --n-gap: -15px;
+    --slide-size: 100vw;
+  }
+}
+
+.scrollable .slider-multiple .slick-slide{
+  --slide-size: calc(33.3333vw - 23.3333px - 5.6666px);
+
+  @include media-breakpoint-down(xl){
+    --slide-size: calc(33.3333vw - 10px - 5.6666px);
+  }
+
+  @include media-breakpoint-down(lg){
+    --slide-size: calc(33.3333vw - 3.3333px - 5.6666px);
+  }
+
+  @include media-breakpoint-down(md) {
+    --slide-size: calc(50vw - 5px - 8.5px);
+  }
+
+  @include media-breakpoint-down(sm) {
+    --slide-size: calc(100vw - 15px - 8.5px);
   }
 }

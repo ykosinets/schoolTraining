@@ -1,57 +1,26 @@
-/**
- * querySelector wrapper
- *
- * @param {string} selector Selector to query
- * @param {Element} [scope] Optional scope element for the selector
- */
-export function qs(selector, scope) {
-  return (scope || document).querySelector(selector);
-}
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
-/**
- * querySelectorAll wrapper
- *
- * @param {string} selector Selector to query
- * @param {Element} [scope] Optional scope element for the selector
- */
-export function qsa(selector, scope) {
-  return [...(scope || document).querySelectorAll(selector)];
-}
+//----------------------------------------------------------
+//helpers---------------------------------------------------
+$.fn.isInViewport = function (part) {
+  part = part || 1;
+  let elementTop = $(this).offset().top;
+  let elementBottom = elementTop + $(this).outerHeight() * part;
+  let viewportTop = $(window).scrollTop();
+  let viewportBottom = viewportTop + $(window).height() * part;
 
-/**
- * addEventListener wrapper
- *
- * @param {Element|Window} target Target Element
- * @param {string} type Event name to bind to
- * @param {Function} callback Event callback
- * @param {boolean} [capture] Capture the event
- */
-export function $on(target, type, callback, capture) {
-  target.addEventListener(type, callback, !!capture);
-}
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
 
-/**
- * Attach a handler to an event for all elements matching a selector.
- *
- * @param {Element} target Element which the event must bubble to
- * @param {string} selector Selector to match
- * @param {string} type Event name
- * @param {Function} handler Function called when the event bubbles to target
- *                           from an element matching selector
- * @param {boolean} [capture] Capture the event
- */
-export function $delegate(target, selector, type, handler, capture) {
-  const dispatchEvent = event => {
-    const targetElement = event.target;
-    const potentialElements = target.querySelectorAll(selector);
+$.fn.hasScrollBar = function () {
+  return window.innerWidth - this[0].clientWidth > 0
+};
 
-    for (let i = potentialElements.length; i >= 0; i--) {
-      if (potentialElements[i] === targetElement) {
-        handler.call(targetElement, event);
-        break;
-      }
-    }
-  };
+$(document).ready(function () {
+  let $body = $('body');
 
-  $on(target, type, dispatchEvent, !!capture);
-}
+  if ($body.hasScrollBar()) {
+    $body.addClass('scrollable');
+  }
+});

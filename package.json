@@ -10,7 +10,7 @@
   },
   "scripts": {
     "prestart": "rimraf build && rimraf ./stats.json",
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --port=9000 --open --mode development",
     "prebuild": "rimraf build && rimraf ./stats.json",
     "build": "webpack --mode production --progress --display-error-details",
     "check-eslint-config": "eslint --print-config .eslintrc | eslint-config-prettier-check",
@@ -94,7 +94,10 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
+    "@glidejs/glide": "^3.4.1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1"
+    "is-in-viewport": "^3.0.4",
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1"
   }
 }

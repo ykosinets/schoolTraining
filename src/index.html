@@ -25,50 +25,233 @@
 </head>
 
 <body>
-<header>
-  <a href="/" class="header-brand">
-    <img src="images/logo.png" alt="logo">
-  </a>
+<header class="page-header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand" href="#">
+      <img src="http://ykosinets.xyz/schoolTraining/src/images/logo.png" alt="logo">
+    </a>
 
-  <div class="">
-    <div class="search-field">
-      <form action="/" method="get" autocomplete="on">
-        <input name="search" type="search" class="form-control" placeholder="Search...">
-        <button type="submit" class="icon-search"></button>
-      </form>
-    </div>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <a href="/" class="btn btn-danger">INICIAR SESIÓN</a>
+    <div class="collapse navbar-collapse flex-grow-0 flex-column" id="navbarSupportedContent">
+      <div class="d-flex flex-row order-2 order-lg-1 mr-0 ml-auto">
+        <form action="/" method="get" autocomplete="on" class="form-inline form-search mr-2">
+          <div class="input-group">
+            <input name="search" type="search" class="hidden-input" placeholder="Search..." aria-label="Search">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-icon"><span class="fa fa-search"></span></button>
+            </div>
+          </div>
+        </form>
 
-    <nav>
-      <ul>
-        <li>FORMACIÓN</li>
-        <li>LA ESCUELA EMPLEO</li>
-        <li>SERVICIOS</li>
-        <li>CONTACTO</li>
+        <a href="/" class="btn btn-primary">INICIAR SESIÓN</a>
+      </div>
+
+      <ul class="navbar-nav ml-auto order-1 order-lg-2">
+        <li class="nav-item active"><a class="nav-link" href="#">FORMACIÓN</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">LA ESCUELA EMPLEO</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">SERVICIOS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">CONTACTO</a></li>
       </ul>
-    </nav>
-  </div>
-
+    </div>
+  </nav>
 </header>
 
 <main>
-  <i class="fab fa-500px"></i>
+  <section class="section-hero">
+    <div class="background pause active">
+      <div class="poster bg-cover"
+           style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/bg-hero.png)"></div>
+      <video muted playsinline webkit-playsinline>
+        <source src="http://ykosinets.xyz/schoolTraining/src/video/phone.mp4" type="video/mp4">
+      </video>
 
-
-  <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Link with href
-    </a>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Button with data-target
-    </button>
-  </p>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      <a href="#" class="btn-play btn-play-md">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle">
+          <path
+            d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"/>
+        </svg>
+      </a>
     </div>
-  </div>
+
+    <div class="section-inner">
+      <h1 class="section-title">PROFESIONALES
+        DEL ENTRETENIMIENTO</h1>
+      <p class="section-subtitle">Trailer. 4 Profesionales, 4 historias.</p>
+      <p>Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a
+        page when looking at its layout. </p>
+
+      <div class="d-flex flex-row mt-2 mt-md-5">
+        <a href="#" class="btn btn-primary mr-3">MÁS INFO</a>
+        <a href="#" class="btn btn-outline-primary">CONTACTO</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-profs">
+    <h4 class="section-title">CÓMO EMPEZÓ TODO</h4>
+
+    <div class="slider-wrapper">
+      <div class="slider slider-multiple slider-profs">
+
+      </div>
+    </div>
+
+    <div class="slider-container">
+      <span class="slider-close"></span>
+
+      <div class="background">
+        <a href="#" class="fs d-block position-absolute"></a>
+        <video muted playsinline webkit-playsinline class="temp">
+          <source src="{{videoUrl}}" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="tab-content" id="sliderTabContent">
+        <div class="tab-pane tab-info fade show active" id="formacion" role="tabpanel"
+             aria-labelledby="formacion-tab">
+          <div class="tab-inner">
+            <p class="prof-name m-0">{{name}}</p>
+            <p class="prof-ex-position m-0">{{positionEx}}</p>
+            <p class="prof-position text-primary m-0">{{position}}</p>
+            <p class="prof-video-name mt-4">{{videoName}}</p>
+            <p class="prof-video-description mt-1">{{videoDescription}}</p>
+            <div class="flex flex-row mt-3">
+              <div class="btn btn-sm btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40" class="play-triangle">
+                  <path d="M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z"></path>
+                </svg>
+                REPRODUCIR
+              </div>
+              <div class="btn btn-sm btn-outline-primary ml-3">MÁS INFO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="{{tabsName}}" role="tabpanel" aria-labelledby="{{tabsName}}-tab">
+          <div class="tab-inner">
+            {{tabsName}}
+          </div>
+        </div>
+      </div>
+
+      <ul class="nav nav-pills" id="pills-tab" role="tablist"></ul>
+    </div>
+  </section>
+
+  <section class="section-tiles">
+    <h4 class="section-title">FORMACIÓN</h4>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="ratio ratio-3x4">
+          <a href="#" class="tile-link"></a>
+          <div class="tile-bg"
+               style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/tile-1.jpg)"></div>
+
+          <div class="tile">
+            <p class="tile-title">SONIDO</p>
+            <p class="tile-excerpt">Profesionales del Entretenimiento</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="ratio ratio-3x4">
+          <a href="#" class="tile-link"></a>
+          <div class="tile-bg"
+               style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/tile-2.jpg)"></div>
+
+          <div class="tile">
+            <p class="tile-title">ESPECTÁCULOS</p>
+            <p class="tile-excerpt">Profesionales del Entretenimiento</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="ratio ratio-3x4">
+          <a href="#" class="tile-link"></a>
+          <div class="tile-bg"
+               style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/tile-3.jpg)"></div>
+
+          <div class="tile">
+            <p class="tile-title">PRODUCCIÓN MUSICAL</p>
+            <p class="tile-excerpt">Profesionales del Entretenimiento</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="ratio ratio-3x4">
+          <a href="#" class="tile-link"></a>
+
+          <div class="tile-bg"
+               style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/tile-4.jpg)"></div>
+
+          <div class="tile">
+            <p class="tile-title">CINE & SERIES</p>
+            <p class="tile-excerpt">Profesionales del Entretenimiento</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-members">
+    <h4 class="section-title">PROFESORADO</h4>
+
+    <div class="member-list">
+      <div class="member">
+        <div class="member-avatar"
+             style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/member-1.jpg)"></div>
+        <p class="member-name">Alejandro Alvarado</p>
+        <p class="member-position text-primary">Guionista, director y montador de documental</p>
+      </div>
+
+      <div class="member">
+        <div class="member-avatar"
+             style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/member-2.jpg)"></div>
+        <p class="member-name">Germán Brigante</p>
+        <p class="member-position text-primary">Productor Musical</p>
+      </div>
+
+      <div class="member">
+        <div class="member-avatar"
+             style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/member-3.jpg)"></div>
+        <p class="member-name">Gonçalo</p>
+        <p class="member-position text-primary">Productor y Artist Manager</p>
+      </div>
+
+      <div class="member">
+        <div class="member-avatar"
+             style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/member-4.jpg)"></div>
+        <p class="member-name">SFDK</p>
+        <p class="member-position text-primary">Productores de Hip Hop</p>
+      </div>
+
+      <div class="member">
+        <div class="member-avatar"
+             style="background-image: url(http://ykosinets.xyz/schoolTraining/src/images/member-5.jpg)"></div>
+        <p class="member-name">Capaz</p>
+        <p class="member-position text-primary">MC</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer d-flex flex-row justify-content-center align-items-center py-3">
+    <ul class="list-unstyled list-horizontal list-social m-0">
+      <li><a href="#" class="btn-social"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#" class="btn-social"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="#" class="btn-social"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="#" class="btn-social"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+  </footer>
 </main>
 </body>
 </html>

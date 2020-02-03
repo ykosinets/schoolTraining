@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #10171F;
+  font-family: $raleway;
+  line-height: 1.4;
+}

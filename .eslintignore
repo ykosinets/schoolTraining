@@ -1,5 +1,6 @@
 **/*{.,-}min.js
 **/build/*
 **/webpack/*
-**/node_modules/* 
+**/node_modules/*
+**/src/*
 webpack.config.js

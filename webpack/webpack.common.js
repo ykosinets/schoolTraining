@@ -11,6 +11,12 @@ module.exports = {
     filename: `scripts/[name].[hash:8].js`,
     path: paths.build,
   },
+  devServer: {
+    allowedHosts: [
+      'ykosinets.xyz',
+      'ykosinets.xyz/schoolTraining/'
+    ]
+  },
   module: {
     rules: [
       {

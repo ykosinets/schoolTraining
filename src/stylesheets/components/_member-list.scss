@@ -1,0 +1,73 @@
+.section-members {
+  overflow-x: hidden;
+  background-color: #30302F;
+
+  .member {
+    width: 20%;
+    margin-bottom: 15px;
+    padding: var(--gap);
+
+    @include media-breakpoint-down(md) {
+      //width: 33.3333%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 33.3333%;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 50%;
+    }
+
+    &-list {
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      margin: 0 -50px;
+      @include interpolate(margin-left, sm, xxl, -15px, -50px);
+      @include interpolate(margin-right, sm, xxl, -15px, -50px);
+
+      @include media-breakpoint-down(md) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    &-avatar {
+      width: 100%;
+      height: auto;
+      @extend .bg-cover;
+      border-radius: 100%;
+      border: 5px solid $white;
+
+      @include media-breakpoint-down(md) {
+        border: 3px solid $white;
+      }
+
+      @include media-breakpoint-down(sm) {
+        border: 2px solid $white;
+      }
+
+      &:before {
+        content: '';
+        position: relative;
+        display: block;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+
+    &-name {
+      @include interpolate(font-size, sm, xxl, 20px, 28px);
+      font-weight: 700;
+      margin: .75em 0 0;
+      line-height: 1.2;
+    }
+
+    &-position {
+      margin-bottom: 0;
+      @include interpolate(font-size, sm, xxl, 16px, 20px);
+    }
+  }
+}
+

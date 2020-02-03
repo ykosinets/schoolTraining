@@ -1,0 +1,127 @@
+.page-header {
+  .navbar {
+    padding: 0 var(--gap);
+    align-items: flex-end;
+
+    &-brand {
+      padding-top: 33px;
+      padding-bottom: 33px;
+      position: relative;
+
+      @include media-breakpoint-down(md) {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        width: 100%;
+        border-bottom: 5px solid $primary;
+        transform: scaleX(0);
+        will-change: transform;
+        transition: .3s transform ease-in-out;
+
+        @include media-breakpoint-down(sm) {
+          border-bottom: 3px solid $primary;
+        }
+      }
+
+      &:hover {
+        &:after {
+          transform: scale(1);
+        }
+      }
+
+      img {
+        @include interpolate(width, sm, xxl, 145px, 480px);
+      }
+    }
+
+    &-nav {
+      margin-top: 22px;
+
+      .nav-link {
+        font-size: 1.875rem;
+        font-family: $raleway;
+        white-space: nowrap;
+        will-change: color;
+        transition: .2s color ease-in-out;
+
+        @include interpolate(font-size, sm, xxl, 16px, 30px);
+        @include interpolate(padding-right, sm, xxl, 10px, 25px);
+        @include interpolate(padding-left, sm, xxl, 10px, 25px);
+      }
+    }
+
+    &-collapse {
+      margin-bottom: 33px;
+
+      @include media-breakpoint-down(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  span {
+    width: 30px;
+    position: absolute;
+    border-bottom: 2px solid $white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      will-change: margin-top, transform;
+      transition: margin-top ease-in-out, transform ease-in-out;
+      transition-duration: .2s;
+    }
+
+    &:nth-child(1) {
+      margin-top: -8px;
+    }
+
+    &:nth-child(2) {
+      will-change: transform;
+      transition: .2s transform ease-in-out;
+    }
+
+    &:nth-child(3) {
+      margin-top: 8px;
+    }
+  }
+
+  &:not(.collapsed) {
+    span {
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        margin-top: 0;
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) scaleX(0);
+      }
+
+      &:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(45deg);
+        margin-top: 0;
+      }
+    }
+  }
+}

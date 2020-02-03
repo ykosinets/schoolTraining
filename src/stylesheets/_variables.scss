@@ -1,0 +1,44 @@
+// fonts
+$lato: "Lato", sans-serif;
+$raleway: "Raleway", sans-serif;
+
+
+// assets
+//slick
+$slick-font-path: '../fonts/';
+$slick-loader-path: '../images/icons/';
+//fontawesome
+$fa-font-path: '../fonts';
+
+//bootstrap
+//bootstrap:grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1920px
+);
+//bootstrap:colors
+$primary: #da1f27;
+$body-color: #fff;
+$body-bg: #2d2d2d;
+$dark: #10171f;
+//bootstrap:main
+$border-radius: 10px;
+//bootstrap:navbar
+//$navbar-nav-link-padding-x: 25px;
+//$navbar-padding-x: 3.125rem;
+$navbar-padding-y: 0;
+//bootstrap:button
+//$btn-font-size: 1.625rem;
+$btn-font-weight: 500;
+$btn-font-family: $raleway;
+$btn-padding-y: .3275em;
+$btn-padding-x: 1em;
+
+// css vars
+:root{
+  --gap: 50px;
+}

@@ -1,8 +1,19 @@
 import '../stylesheets/style.scss';
 import $ from 'jquery';
-import "bootstrap/js/src/collapse";
-
-
 window.$ = window.jQuery = $;
+import "bootstrap/js/dist/tab";
+import Slider from "./slider";
+import heroInit from "./hero";
 
-console.log();
+$.ajax({
+  url: "../static/data.json",
+})
+  .done(function (data) {
+    if (data) {
+      let profSlider = new Slider;
+      profSlider.render(data);
+      profSlider.init();
+    }
+  });
+
+heroInit();

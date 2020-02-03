@@ -1,0 +1,43 @@
+{
+  "slides": [
+    {
+      "id": 4,
+      "image": "../static/images/prof-2.jpg",
+      "name": "Eduardo García",
+      "position": "Ex-alumno de Técnico de Sonido",
+      "positionEx": "DJ y Productor",
+      "video": {
+        "url": "../static/video/travel.mp4",
+        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+      },
+      "tabs": [
+        {
+          "id": 0,
+          "name": "FORMACIÓN",
+          "content": ""
+        },
+        {
+          "id": 1,
+          "name": "LA ESCUELA",
+          "content": ""
+        },
+        {
+          "id": 2,
+          "name": "EMPLEO",
+          "content": ""
+        },
+        {
+          "id": 3,
+          "name": "SERVICIOS",
+          "content": ""
+        },
+        {
+          "id": 4,
+          "name": "CONTACTO",
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
