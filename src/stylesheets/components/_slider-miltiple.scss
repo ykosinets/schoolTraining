@@ -479,23 +479,23 @@
         padding-bottom: 90px;
       }
 
-      .prof-name {
+      .tile-title {
       }
 
-      .prof-position {
+      .tile-subtitle {
         font-weight: 700;
       }
 
-      .prof-ex-position {
+      .tile-excerpt {
         font-weight: 700;
       }
 
-      .prof-video-name {
+      .content-title {
         font-weight: 700;
         letter-spacing: -.1px;
       }
 
-      .prof-video-description {
+      .content-description {
         @include interpolate(font-size, sm, xxl, 16px, 24px);
         font-weight: 700;
       }

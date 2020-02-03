@@ -3,20 +3,19 @@
     {
       "id": 0,
       "link": "#",
-      "image": "../static/images/prof-1.jpg",
-      "name": "Eduardo García",
-      "position": "Ex-alumno de Técnico de Sonido",
-      "positionEx": "DJ y Productor",
+      "image": "../static/images/tile-1.jpg",
+      "title": "SONIDO",
+      "subtitle": "Profesionales del Entretenimiento",
       "video": {
         "url": "../static/video/travel.mp4",
-        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "title": "Trailer. 4 Profesionales, 4 historias.",
         "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
       },
       "tabs": [
         {
           "id": 0,
           "name": "FORMACIÓN",
-          "content": "<p class=\"prof-name m-0\">Sack Novello0</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
+          "content": "<p class=\"prof-name m-0\">SONIDO</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
         },
         {
           "id": 1,
@@ -43,19 +42,18 @@
     {
       "id": 1,
       "link": "#",
-      "image": "../static/images/prof-2.jpg",
-      "name": "Eduardo García 2",
-      "position": "Ex-alumno de Técnico de Sonido",
-      "positionEx": "DJ y Productor",
+      "image": "../static/images/tile-2.jpg",
+      "title": "ESPECTÁCULOS",
+      "subtitle": "Profesionales del Entretenimiento",
       "video": {
         "url": "../static/video/shadows.mp4",
-        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "title": "ESPECTÁCULOS",
         "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
       },
       "tabs": [
         {
           "id": 0,
-          "name": "FORMACIÓN",
+          "name": "ESPECTÁCULOS",
           "content": "<p class=\"prof-name m-0\">Sack Novello1</p><p class=\"prof-ex-position m-0\">Ex-alumna de Cine y Sonido</p><p class=\"prof-position text-primary m-0\">Directora de Cine y Series</p><p class=\"prof-video-name mt-4\">Trailer. 4 Profesionales, 4 historias.</p><p class=\"prof-video-description mt-1\">Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class=\"flex flex-row mt-3\"><a href=\"#\" class=\"btn btn-sm btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 30 40\" class=\"play-triangle\"><path d=\"M28.47,17,5.79.69A3.66,3.66,0,0,0,0,3.68V36.32a3.66,3.66,0,0,0,5.79,3L28.47,23A3.67,3.67,0,0,0,28.47,17Z\"></path></svg>REPRODUCIR</a><a href=\"#\" class=\"btn btn-sm btn-outline-primary ml-3\">MÁS INFO</a></div></div>"
         },
         {
@@ -83,13 +81,12 @@
     {
       "id": 2,
       "link": "#",
-      "image": "../static/images/prof-3.jpg",
-      "name": "Eduardo García",
-      "position": "Ex-alumno de Técnico de Sonido",
-      "positionEx": "DJ y Productor",
+      "image": "../static/images/tile-3.jpg",
+      "title": "PRODUCCIÓN MUSICAL",
+      "subtitle": "Profesionales del Entretenimiento",
       "video": {
         "url": "../static/video/car.mp4",
-        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "title": "PRODUCCIÓN MUSICAL",
         "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
       },
       "tabs": [
@@ -123,13 +120,12 @@
     {
       "id": 3,
       "link": "#",
-      "image": "../static/images/prof-2.jpg",
-      "name": "Eduardo García",
-      "position": "Ex-alumno de Técnico de Sonido",
-      "positionEx": "DJ y Productor",
+      "image": "../static/images/tile-4.jpg",
+      "title": "CINE & SERIES",
+      "subtitle": "Profesionales del Entretenimiento",
       "video": {
         "url": "../static/video/shadows.mp4",
-        "name": "Trailer. 4 Profesionales, 4 historias.",
+        "title": "CINE & SERIES",
         "description": "Breve Introducción. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
       },
       "tabs": [

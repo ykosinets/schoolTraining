@@ -1,0 +1,15 @@
+.section-news {
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $black 50px, $black calc(100% - 50px), rgba(0, 0, 0, 0) 100%);
+
+  .slider-multiple {
+    .ratio {
+      &-inner {
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.05) 0%, $black 17.5%, $black 100%);
+      }
+
+      .content {
+        opacity: 1;
+      }
+    }
+  }
+}

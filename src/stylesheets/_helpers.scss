@@ -82,20 +82,26 @@
   }
 
   &-1x2 {
-    &:after {
-      padding-bottom: 50%;
+    .ratio {
+      &:after {
+        padding-bottom: 50%;
+      }
     }
   }
 
   &-3x4 {
-    &:after {
-      padding-bottom: 75%;
+    .ratio {
+      &:after {
+        padding-bottom: 75%;
+      }
     }
   }
 
   &-9x16 {
-    &:after {
-      padding-bottom: 56.25%;
+    .ratio {
+      &:after {
+        padding-bottom: 56.25%;
+      }
     }
   }
 
@@ -111,7 +117,7 @@
   background-position: center;
 }
 
-.list-horizontal{
+.list-horizontal {
   display: flex;
   flex-direction: row;
 }

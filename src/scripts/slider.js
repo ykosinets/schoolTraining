@@ -1,20 +1,26 @@
 import $ from 'jquery';
+
 window.$ = window.jQuery = $;
 
 import "is-in-viewport";
 import "slick-carousel/slick/slick";
 
 class Slider {
-  createContent = (slide) => {
-    let $pillsHolder = $('.nav-pills');
-    let $backgroundHolder = $('.slider-container .background');
-    let $contentHolder = $('.slider-container .tab-content');
+  constructor($section, options) {
+    this.$section = $section;
+    this.options = options;
+  }
 
-    function createId(id, name){
+  createContent(slide) {
+    let $pillsHolder = this.$section.find('.nav-pills');
+    let $backgroundHolder = this.$section.find('.slider-container .background');
+    let $contentHolder = this.$section.find('.slider-container .tab-content');
+
+    function createId(id, name) {
       return name.toLowerCase().replace(' ', '-') + '-' + id;
     }
 
-    function createTabContent(slide){
+    function createTabContent(slide) {
       let content = '';
 
       slide.tabs.map(tab => {
@@ -29,7 +35,7 @@ class Slider {
       return content;
     }
 
-    function createNavPills(slide){
+    function createNavPills(slide) {
       let tabsContent = '';
 
       slide.tabs.map(tab => {
@@ -49,7 +55,7 @@ class Slider {
       return tabsContent;
     }
 
-    function createBackground(slide){
+    function createBackground(slide) {
       return `<a href="${slide.link}" class="fs d-block position-absolute"></a>
           <video muted playsinline webkit-playsinline class="temp">
             <source src="${slide.video.url}" type="video/mp4">
@@ -63,23 +69,22 @@ class Slider {
     $pillsHolder.append(createNavPills(slide));
   };
 
-  updateContent = (slide) => {
-    let $pillsHolder = $('.nav-pills');
-    let $backgroundHolder = $('.slider-container .background');
-    let $contentHolder = $('.slider-container .tab-content');
+  updateContent(slide) {
+    let $pillsHolder = this.$section.find('.nav-pills');
+    let $backgroundHolder = this.$section.find('.slider-container .background');
+    let $contentHolder = this.$section.find('.slider-container .tab-content');
     $pillsHolder.html('');
     $backgroundHolder.html('');
     $contentHolder.html('');
 
-    this.createContent(slide)
+    this.createContent(slide, this.$section)
   };
 
-  render = (data) => {
-    console.log(data);
-
+  render(data) {
+    let $currentSection = this.$section;
     let createSlide = (slide) => {
       return `<div class="item" data-id="${slide.id}">
-          <div class="ratio ratio-1x2">
+          <div class="ratio">
             <div class="ratio-inner bg-cover"
                  style="background-image: url(${slide.image})">
               <a href="#" class="btn-play btn-play-xs">
@@ -90,9 +95,9 @@ class Slider {
               </a>
 
               <div class="content">
-                <p class="prof-name">${slide.name}</p>
-                <p class="prof-ex-position">${slide.positionEx}</p>
-                <p class="prof-position text-primary">${slide.position}</p>
+                <p class="tile-title">${slide.title}</p>
+                <p class="tile-subtitle">${slide.subtitle}</p>
+                ${slide.excerpt ? `<p class="tile-excerpt text-primary">${slide.excerpt}</p>` : ``}
               </div>
 
               <span class="expand">
@@ -113,52 +118,23 @@ class Slider {
     };
 
     data.slides.map((slide) => {
-      $('.slider-profs').append(createSlide(slide));
+      $currentSection.find('.slider').append(createSlide(slide));
     });
   };
 
-
-  init = (data) => {
+  init(data) {
+    this.render(data);
     const self = this;
-    this.createContent(data.slides[0]);
-    const arrow = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 240 240" xml:space="preserve"><path id="Chevron_Right" d="M57.633,129.007L165.93,237.268c4.752,4.74,12.451,4.74,17.215,0c4.752-4.74,4.752-12.439,0-17.179	l-99.707-99.671l99.695-99.671c4.752-4.74,4.752-12.439,0-17.191c-4.752-4.74-12.463-4.74-17.215,0L57.621,111.816 C52.942,116.507,52.942,124.327,57.633,129.007z"/></svg>`;
     let slider = {
-      element: {
-        profs: $('.slider-profs'),
-      },
-
-      options: {
-        profs: {
-          swipe: false,
-          initialSlide: 0,
-          focusOnSelect: false,
-          infinite: true,
-          centerMode: false,
-          centerPadding: 0,
-          autoplay: false,
-          variableWidth: true,
-          prevArrow: '<button class="slick-prev slick-arrow">' + arrow + '</button>',
-          nextArrow: '<button class="slick-next slick-arrow">' + arrow + '</button>',
-          responsive: [
-            {
-              breakpoint: 991,
-              settings: {}
-            },
-            {
-              breakpoint: 480,
-              settings: {}
-            }
-          ]
-        }
-      }
+      element: this.$section.find('.slider'),
+      options: this.options
     };
 
-    slider.element.profs
+    slider.element
       .on('init', function (slick) {
         let $sliderSection = $(slick.target).parents('section');
 
         let $contentSection = $sliderSection.find('.slider-container');
-        let contentVideo = $contentSection.find('video')[0];
         let $close = $sliderSection.find('.slider-close');
 
         let $slides = $(slick.target).find('.slick-slide');
@@ -221,11 +197,12 @@ class Slider {
           });
 
         $expand.on('click', function (e) {
+          e.stopPropagation();
           let $slide = $(this).parents('.slick-slide');
           let slideId = $slide.find('.item').data('id');
-          self.updateContent(data.slides[slideId]);
-          e.stopPropagation();
           let $sliderSection = $(slick.target).parents('section');
+          self.updateContent(data.slides[slideId], $sliderSection);
+
           let $contentSection = $sliderSection.find('.slider-container');
           let contentVideo = $contentSection.find('video')[0];
           let $arrows = $(slick.target).find('.slick-arrow');
@@ -262,6 +239,7 @@ class Slider {
         $close.on('click', function () {
           $slides.removeClass('slide-hover');
           $sliderSection.removeClass('active shown');
+          let contentVideo = $contentSection.find('video')[0];
           let slideVideo = $(this).parents('section').find('.slide-active video')[0];
 
           slideVideo.currentTime = contentVideo.currentTime;
@@ -280,11 +258,9 @@ class Slider {
           }
         }
 
-        console.log($slide);
         $slide[$slide.is(":in-viewport") ? 'addClass' : 'removeClass']('.slick-active')
-      });
-
-    slider.element.profs.slick(slider.options.profs);
+      })
+      .slick(slider.options);
   };
 }
 

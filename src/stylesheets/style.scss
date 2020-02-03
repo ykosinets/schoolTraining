@@ -13,9 +13,9 @@
 @import './controls';
 @import './fonts';
 @import './components/header';
-@import './components/section-tiles';
+@import './components/section-news';
+@import './components/section-profs';
 @import './components/member-list';
-@import './components/profs-list';
 @import './components/footer';
 @import './components/slider-miltiple';
 // section
@@ -73,44 +73,83 @@ a {
   }
 }
 
-:root{
+:root {
   --gap: 50px;
   --n-gap: -50px;
-  --slide-size: calc(33.3333vw - 23.3333px);
 
-  @include media-breakpoint-down(xl){
+  @include media-breakpoint-down(xl) {
     --gap: 30px;
     --n-gap: -30px;
-    --slide-size: calc(33.3333vw - 10px);
   }
 
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(lg) {
     --gap: 20px;
     --n-gap: -20px;
-    --slide-size: calc(33.3333vw);
   }
 
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(md) {
     --gap: 15px;
     --n-gap: -15px;
-    --slide-size: 50vw;
   }
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     --gap: 15px;
     --n-gap: -15px;
-    --slide-size: 100vw;
+  }
+
+  .section-profs {
+    --slide-size: calc(33.3333vw - 23.3333px);
+
+    @include media-breakpoint-down(xl) {
+      --slide-size: calc(33.3333vw - 10px);
+    }
+
+    @include media-breakpoint-down(lg) {
+      --slide-size: calc(33.3333vw);
+    }
+
+    @include media-breakpoint-down(md) {
+      --slide-size: 50vw;
+    }
+
+    @include media-breakpoint-down(sm) {
+      --slide-size: 100vw;
+    }
+  }
+
+  .section-news {
+    --slide-size: calc(25vw - 17.5px);
+
+    @include media-breakpoint-down(xl) {
+      --slide-size: calc(25vw - 7.5px);
+    }
+
+    @include media-breakpoint-down(lg) {
+      --slide-size: calc(25vw - 2.5px);
+    }
+
+    @include media-breakpoint-down(md) {
+      --slide-size: 33.3333vw;
+    }
+
+    @include media-breakpoint-down(sm) {
+      --slide-size: 50vw;
+    }
+
+    @include media-breakpoint-down(xs) {
+      --slide-size: 100vw;
+    }
   }
 }
 
-.scrollable .slider-multiple .slick-slide{
+.scrollable .section-tiles .slider-multiple.slides-3 .slick-slide {
   --slide-size: calc(33.3333vw - 23.3333px - 5.6666px);
 
-  @include media-breakpoint-down(xl){
+  @include media-breakpoint-down(xl) {
     --slide-size: calc(33.3333vw - 10px - 5.6666px);
   }
 
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(lg) {
     --slide-size: calc(33.3333vw - 3.3333px - 5.6666px);
   }
 
@@ -119,6 +158,30 @@ a {
   }
 
   @include media-breakpoint-down(sm) {
+    --slide-size: calc(100vw - 15px - 8.5px);
+  }
+}
+
+.scrollable .section-tiles .slider-multiple.slides-4 .slick-slide {
+  --slide-size: calc(25vw - 17.5px - 5.6666px);
+
+  @include media-breakpoint-down(xl) {
+    --slide-size: calc(25vw - 7.5px - 5.6666px);
+  }
+
+  @include media-breakpoint-down(lg) {
+    --slide-size: calc(25vw - 2.5px - 5.6666px);
+  }
+
+  @include media-breakpoint-down(md) {
+    --slide-size: calc(33.3333vw - 5px - 8.5px);
+  }
+
+  @include media-breakpoint-down(sm) {
+    --slide-size: calc(50vw - 5px - 8.5px);
+  }
+
+  @include media-breakpoint-down(xs) {
     --slide-size: calc(100vw - 15px - 8.5px);
   }
 }
